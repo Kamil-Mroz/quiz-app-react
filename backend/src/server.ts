@@ -136,6 +136,20 @@ app.post("/register", async (req: Request, res: Response) => {
   res.status(201).json({ message: "User registered successfully" });
 });
 
+app.get("/user", authenticate, async (req: Request, res: Response) => {
+  const data = loadData();
+
+  const user: User = data.users.find(
+    (u: User) => u.username === req.user?.username
+  );
+  if (!user) {
+    res.status(404).json({ message: "User not found" });
+    return;
+  }
+
+  res.status(201).json({ user });
+});
+
 const storage = multer.diskStorage({
   destination: function (req, file, callback) {
     callback(null, __dirname + "/uploads");
@@ -167,7 +181,10 @@ app.post(
 
     user.image = req.file.originalname;
     saveData(data);
-    res.status(201).json({ message: "File uploaded", profilePicture:req.file.originalname });
+    res.status(201).json({
+      message: "File uploaded",
+      profilePicture: req.file.originalname,
+    });
   }
 );
 
@@ -183,7 +200,7 @@ app.post("/login", async (req: Request, res: Response) => {
 
   const token = jwt.sign({ username }, SECRET_KEY, { expiresIn: "1d" });
 
-  res.json({ message: "Login successfully", token });
+  res.json({ user, message: "Login successfully", authToken: token });
 });
 
 app.get("/profile", authenticate, (req: Request, res: Response) => {

@@ -1,9 +1,18 @@
-import { createFileRoute } from '@tanstack/react-router'
+import EditQuiz from "@/components/EditQuiz";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 
-export const Route = createFileRoute('/quizzes/add/')({
+export const Route = createFileRoute("/quizzes/add/")({
   component: AddQuiz,
-})
+  beforeLoad: ({ context }) => {
+    const { isLoggedIn } = context.auth;
+    if (!isLoggedIn()) {
+      throw redirect({ to: "/login" });
+    }
+  },
+  errorComponent: ({ error }) => <div>{error.message}</div>,
+  pendingComponent: () => <div>Loading...</div>,
+});
 
 function AddQuiz() {
-  return <div>Hello "/quizzes/add/"!</div>
+  return <EditQuiz />;
 }

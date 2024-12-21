@@ -1,13 +1,12 @@
 {
   "users": [
     {
-      "username": "user",
+      "username": "User",
       "password": "$2a$10$.1pZmSsEl87jARlTlVs3ue82DPm4g8KGTLIFXpenm2Njg/7lETSn.",
       "email": "qwe@qwe.qwe",
       "solvedQuizzes": [],
       "correctAnswers": 0,
-      "achievements": [],
-      "image": ""
+      "achievements": []
     },
     {
       "username": "Test",
@@ -15,14 +14,12 @@
       "email": "qwe@qwe.qwe",
       "solvedQuizzes": [],
       "correctAnswers": 0,
-      "achievements": [],
-      "image": ""
+      "achievements": []
     },
     {
       "username": "qwe",
       "password": "$2a$10$Z.uf0ouAODKasXGY75VsCur1ZaRWR8TyfueWNhaEtOvDL3RVKGlMK",
       "email": "qwe@qwe.qwe",
-      "image": "",
       "solvedQuizzes": [
         {
           "quizId": 10,
@@ -70,7 +67,56 @@
         }
       ],
       "correctAnswers": 0,
-      "achievements": ["pierwszy_quiz", "ekspert"]
+      "achievements": ["pierwszy_quiz", "ekspert"],
+      "image": "Zero.png"
+    },
+    {
+      "username": "Theresa",
+      "password": "$2a$10$CaiMDa7JFOYcLcPRZyCkGuE/GuzQWEKHXcpB43qDAH92nceN23dOi",
+      "email": "qwe@qwe.com",
+      "solvedQuizzes": [
+        {
+          "quizId": 1,
+          "accuracy": 100
+        }
+      ],
+      "correctAnswers": 20,
+      "achievements": ["pierwszy_quiz", "100_poprawnych"]
+    },
+    {
+      "username": "Bernice",
+      "password": "$2a$10$aStSHTVDDzqLabyGyBmasOQMixoWSBZWDWpTdmWIuig0xUeQDlySm",
+      "email": "qwe@qwe.com",
+      "solvedQuizzes": [
+        {
+          "quizId": 1,
+          "accuracy": 100
+        }
+      ],
+      "correctAnswers": 8,
+      "achievements": ["pierwszy_quiz", "100_poprawnych"]
+    },
+    {
+      "username": "Della",
+      "password": "$2a$10$5BhcpLn.h6Lxp2Fy96PuZeonz/QhNyBoQnRTzUaOhJI7/P8THwgu2",
+      "email": "asd@asd.com",
+      "solvedQuizzes": [
+        {
+          "quizId": 1,
+          "accuracy": 75
+        }
+      ],
+      "correctAnswers": 3,
+      "achievements": ["pierwszy_quiz"]
+    },
+    {
+      "username": "Lula",
+      "passwor1": "$2a$10$NHUva8w7EnEDrxlSY25m3OLQGozitOb2Tbq3b5LAcRCkN8WQMR.ye",
+      "email": "qwe@qwe",
+      "solvedQuizzes": [],
+      "correctAnswers": 0,
+      "achievements": [],
+      "image": "Zero.png"
     }
   ],
   "quizzes": [
@@ -80,7 +126,7 @@
       "description": "A quiz to test your general knowledge.",
       "category": "General Knowledge",
       "timeToSolve": 1,
-      "timesSolved": 3,
+      "timesSolved": 11,
       "questions": [
         {
           "text": "What is the capital of France?",
@@ -152,7 +198,8 @@
       ],
       "createdBy": "qwe",
       "createdAt": "2024-11-01T10:00:00Z",
-      "updatedAt": "2024-11-15T16:01:16.098Z"
+      "updatedAt": "2024-11-15T16:01:16.098Z",
+      "image": ""
     },
     {
       "id": 1731607634620,
@@ -186,21 +233,30 @@
       "id": "pierwszy_quiz",
       "name": "Pierwszy Quiz",
       "description": "Rozwiąż pierwszy quiz.",
-      "condition": { "type": "quizAmount", "value": 1 },
+      "condition": {
+        "type": "quizAmount",
+        "value": 1
+      },
       "url": "pierwszy_quiz.webp"
     },
     {
       "id": "ekspert",
       "name": "Ekspert",
       "description": "Rozwiąż 10 quizów.",
-      "condition": { "type": "quizAmount", "value": 10 },
+      "condition": {
+        "type": "quizAmount",
+        "value": 10
+      },
       "url": "ekspert.webp"
     },
     {
       "id": "100_poprawnych",
       "name": "100 Poprawnych Odpowiedzi",
       "description": "Odpowiedz poprawnie na 100 pytań.",
-      "condition": { "type": "correctAnswers", "value": 100 },
+      "condition": {
+        "type": "correctAnswers",
+        "value": 7
+      },
       "url": "100_poprawnych.webp"
     }
   ]
