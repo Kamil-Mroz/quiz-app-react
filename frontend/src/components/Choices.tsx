@@ -1,4 +1,4 @@
-import { useFormContextQuiz } from "@/hooks/froms";
+import { useFormContextQuiz } from "@/hooks/forms";
 import { useFieldArray } from "react-hook-form";
 
 interface ChoicesProps {
@@ -6,10 +6,11 @@ interface ChoicesProps {
   questionType: "text" | "numeric" | "boolean" | "date";
 }
 
-const Choices = ({ questionIndex, questionType }: ChoicesProps) => {
+const Choices = ({ questionIndex }: ChoicesProps) => {
   const {
     control,
     register,
+    watch,
     formState: { errors },
   } = useFormContextQuiz();
 
@@ -19,6 +20,7 @@ const Choices = ({ questionIndex, questionType }: ChoicesProps) => {
     remove: removeChoice,
   } = useFieldArray({ control, name: `questions.${questionIndex}.choices` });
 
+  const questionType = watch(`questions.${questionIndex}.type`);
   return (
     questionType !== "boolean" && (
       <>

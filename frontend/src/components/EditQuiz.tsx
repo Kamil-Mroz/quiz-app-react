@@ -1,4 +1,4 @@
-import { QuizFormData, useFormContextQuiz } from "@/hooks/froms";
+import { QuizFormData, useFormContextQuiz } from "@/hooks/forms";
 import { createQuiz, updateQuiz } from "@/services/quizzesService";
 import { Quiz } from "@/types";
 import { Link, useNavigate } from "@tanstack/react-router";
@@ -92,9 +92,7 @@ const EditQuiz = ({ quiz }: EditQuizProps) => {
     });
   }
 
-  function formatQuiz(
-    quiz: QuizFormData
-  ) {
+  function formatQuiz(quiz: QuizFormData) {
     const formattedQuiz = {
       ...quiz,
       questions: quiz.questions.map((question) => {
@@ -301,7 +299,6 @@ const EditQuiz = ({ quiz }: EditQuizProps) => {
                 <p className="error">{errors.questions[index].root.message}</p>
               )}
 
-              {/* Choices */}
               <Choices questionIndex={index} questionType={question.type} />
 
               {/* Remove this question */}
