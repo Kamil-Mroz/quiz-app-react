@@ -135,7 +135,7 @@ function Profile() {
             className="w-32 h-32 rounded-full object-cover mx-auto"
           />
         )}
-        {(!currentUser?.image || !profilePictureUrl) && (
+        {!currentUser?.image && !profilePictureUrl && (
           <form
             className="flex flex-col gap-4"
             onSubmit={handleSubmit(onSubmit)}

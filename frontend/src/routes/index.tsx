@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Quiz from "@/components/quiz";
 import { QuizType } from "@/models.module";
 import { getCategories, getQuizzes } from "@/services/quizzesService";

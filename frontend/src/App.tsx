@@ -1,4 +1,3 @@
-import React from "react";
 import "./App.css";
 
 import { RouterProvider, createRouter } from "@tanstack/react-router";
@@ -30,8 +29,8 @@ declare module "@tanstack/react-router" {
 }
 
 function App() {
-  const auth = useAuth()
-  return <RouterProvider router={router} context={{auth}}/>;
+  const auth = useAuth();
+  return <RouterProvider router={router} context={{ auth }} />;
 }
 
 export default App;

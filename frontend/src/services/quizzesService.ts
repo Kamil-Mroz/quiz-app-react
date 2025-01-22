@@ -127,7 +127,41 @@ export async function getTitles() {
   }
 }
 
-export async function updateQuiz(quizId: number, data) {
+export async function updateQuiz(
+  quizId: number,
+  data: {
+    questions: (
+      | {
+          correctAnswer: boolean;
+          choices: { choiceText: boolean }[];
+          text: string;
+          type: "boolean" | "text" | "date" | "numeric";
+        }
+      | {
+          correctAnswer: number;
+          choices: { choiceText: number }[];
+          text: string;
+          type: "boolean" | "text" | "date" | "numeric";
+        }
+      | {
+          correctAnswer: Date;
+          choices: { choiceText: Date }[];
+          text: string;
+          type: "boolean" | "text" | "date" | "numeric";
+        }
+      | {
+          text: string;
+          correctAnswer: string;
+          type: "boolean" | "text" | "date" | "numeric";
+          choices: { choiceText: string }[];
+        }
+    )[];
+    title: string;
+    description: string;
+    category: string;
+    timeToSolve: number;
+  }
+) {
   try {
     await axiosInstance.put(`/quizzes/${quizId}`, data);
   } catch (error) {
@@ -139,7 +173,38 @@ export async function updateQuiz(quizId: number, data) {
   }
 }
 
-export async function createQuiz(data) {
+export async function createQuiz(data: {
+  questions: (
+    | {
+        correctAnswer: boolean;
+        choices: { choiceText: boolean }[];
+        text: string;
+        type: "boolean" | "text" | "date" | "numeric";
+      }
+    | {
+        correctAnswer: number;
+        choices: { choiceText: number }[];
+        text: string;
+        type: "boolean" | "text" | "date" | "numeric";
+      }
+    | {
+        correctAnswer: Date;
+        choices: { choiceText: Date }[];
+        text: string;
+        type: "boolean" | "text" | "date" | "numeric";
+      }
+    | {
+        text: string;
+        correctAnswer: string;
+        type: "boolean" | "text" | "date" | "numeric";
+        choices: { choiceText: string }[];
+      }
+  )[];
+  title: string;
+  description: string;
+  category: string;
+  timeToSolve: number;
+}) {
   try {
     await axiosInstance.post(`/quizzes`, data);
   } catch (error) {

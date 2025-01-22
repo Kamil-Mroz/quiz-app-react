@@ -1,5 +1,4 @@
-import {  createRootRouteWithContext, Outlet } from "@tanstack/react-router";
-import { TanStackRouterDevtools } from "@tanstack/router-devtools";
+import { createRootRouteWithContext, Outlet } from "@tanstack/react-router";
 import Navigation from "@/components/navigation";
 import { AuthContext } from "@/AuthProvider";
 
@@ -9,16 +8,13 @@ interface MyRouterContext {
 
 export const Route = createRootRouteWithContext<MyRouterContext>()({
   component: () => (
-
-      <div className="bg-neutral-900 h-full text-white">
-        <div className="container mx-auto h-full flex flex-col">
-          <Navigation />
-          <div className="grow">
-            <Outlet />
-          </div>
-          <TanStackRouterDevtools />
+    <div className="bg-neutral-900 h-full text-white">
+      <div className="container mx-auto h-full flex flex-col">
+        <Navigation />
+        <div className="grow">
+          <Outlet />
         </div>
       </div>
-    
+    </div>
   ),
 });

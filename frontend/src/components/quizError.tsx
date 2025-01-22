@@ -1,4 +1,4 @@
-function QuizErrorBoundary({ error }) {
+function QuizErrorBoundary({ error }: { error: Error }) {
   return (
     <div>
       <h1>Error Loading Quiz</h1>
